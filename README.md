@@ -4,7 +4,7 @@
 
 ## Discountify!
 
-### Discountify enables to to define and apply discount codes!
+### Discountify enables you to define and apply discount codes!
 
 A modern and fully functional web application that enables admins to define discount codes with desired percentages and customers to apply the codes to their purchases.
 
