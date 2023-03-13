@@ -10,7 +10,7 @@ A modern and fully functional web application that enables admins to define disc
 
 Built using React and TailwindCSS, Discountify utilizes modern syntaxes and follows the latest trends in web development. The app integrates MongoDB and Mongoose for the database, and Express for the backend server. It also includes React Icons for an enhanced UI experience
 
-https://moeisawesome.github.io/wednesdays/
+https://good-cyan-barnacle.cyclic.app/
 
 
 **What tools were used in this project?**
