@@ -8,9 +8,7 @@
 
 A modern and fully functional web application that enables admins to define discount codes with desired percentages and customers to apply the codes to their purchases.
 
-**NOTE**
-It is a desktop-first project and you may have a bad user experience if you use your phone, even though it is responsive for mobile phones and tablets.
-This is my personal project that my friends and I use almost every week. The retro UI design indicates our long friendship.
+Built using React and TailwindCSS, Discountify utilizes modern syntaxes and follows the latest trends in web development. The app integrates MongoDB and Mongoose for the database, and Express for the backend server. It also includes React Icons for an enhanced UI experience
 
 https://moeisawesome.github.io/wednesdays/
 
@@ -20,7 +18,6 @@ https://moeisawesome.github.io/wednesdays/
 * Express
 * MongoDB
 * Mongoose
-* MongoDB Realm
 * React JS
 
 <div align="center">
