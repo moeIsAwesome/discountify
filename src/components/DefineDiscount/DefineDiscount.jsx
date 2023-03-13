@@ -1,16 +1,18 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import CodeTable from './CodeTable/CodeTable';
 import { BsDatabaseAdd } from 'react-icons/bs';
 import { useGlobalContext } from '../../context';
 import { apiUrl } from '../../config';
+import Loading from './Loading/Loading';
 
 const DefineDiscount = ({ deleteCodeFromDB }) => {
-  const { errorMessage, setErrorMessage, dataFromDB, setDataFromDB } =
+  const { errorMessage, setErrorMessage, dataFromDB, setDataFromDB,loading,setLoading } =
     useGlobalContext();
 
   const discountCodeInputRef = useRef(null);
   const percentageInputRef = useRef(null);
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const code = discountCodeInputRef.current.value.toUpperCase();
     const percentage = percentageInputRef.current.value;
@@ -32,6 +34,7 @@ const DefineDiscount = ({ deleteCodeFromDB }) => {
           type: '',
         });
       }, 2000);
+      setLoading(false);
     } else {
       try {
         const response = await fetch(apiUrl, {
@@ -52,6 +55,7 @@ const DefineDiscount = ({ deleteCodeFromDB }) => {
           color: 'text-accent-dark',
           type: 'addedToDB',
         });
+        setLoading(false);
         discountCodeInputRef.current.value = '';
         percentageInputRef.current.value = '';
         setTimeout(() => {
@@ -118,6 +122,7 @@ const DefineDiscount = ({ deleteCodeFromDB }) => {
             </button>
           </div>
         </form>
+        {loading && <Loading />}
         <div className="w-full h-35% flex flex-col items-center justify-center">
           {errorMessage.type === 'existedInDB' && (
             <p className={`text-center text-base pb-10 ${errorMessage.color}`}>

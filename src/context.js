@@ -9,6 +9,8 @@ export const AppProvider = ({ children }) => {
     type: '',
   });
   const [dataFromDB, setDataFromDB] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [showTableShimmer, setShowTableShimmer] = useState(true);
 
   return (
     <AppContext.Provider
@@ -17,6 +19,8 @@ export const AppProvider = ({ children }) => {
         setErrorMessage,
         dataFromDB,
         setDataFromDB,
+        loading,
+        setLoading,
       }}
     >
       {children}

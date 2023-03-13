@@ -1,11 +1,19 @@
 import CodeComponent from './CodeComponent/CodeComponent';
+import CodeComponentShimmer from './CodeComponent/CodeComponentShimmer';
 import { apiUrl } from '../../../config';
 
 import { useGlobalContext } from '../../../context';
 const CodeTable = () => {
-  const { setErrorMessage, dataFromDB, setDataFromDB } = useGlobalContext();
+  const {
+    setErrorMessage,
+    dataFromDB,
+    setDataFromDB,
+    setLoading,
+    showTableShimmer,
+  } = useGlobalContext();
 
   const deleteCodeFromDB = async (id) => {
+    setLoading(true);
     try {
       const response = await fetch(`${apiUrl}/${id}`, {
         method: 'DELETE',
@@ -14,6 +22,7 @@ const CodeTable = () => {
       setDataFromDB(
         dataFromDB.filter((el) => el._id !== deletedCodeComingFromDB._id)
       );
+      setLoading(false);
 
       setErrorMessage({
         message: 'The discount code has been deleted from the database!',
@@ -42,17 +51,18 @@ const CodeTable = () => {
           <div className="font-bold">Remove</div>
         </div>
 
-        {dataFromDB &&
-          dataFromDB.map((el) => {
-            return (
-              <CodeComponent
-                key={el._id}
-                el={el}
-                deleteCodeFromDB={deleteCodeFromDB}
-                setDataFromDB={setDataFromDB}
-              />
-            );
-          })}
+        {dataFromDB ? (
+          dataFromDB.map((el) => (
+            <CodeComponent
+              key={el._id}
+              el={el}
+              deleteCodeFromDB={deleteCodeFromDB}
+              setDataFromDB={setDataFromDB}
+            />
+          ))
+        ) : (
+          <CodeComponentShimmer />
+        )}
       </div>
     </div>
   );

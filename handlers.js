@@ -1,4 +1,4 @@
-const { Code } = require('./Schema');
+const { Code } = require('./schema');
 
 async function getAllCodes(req, res) {
   try {
