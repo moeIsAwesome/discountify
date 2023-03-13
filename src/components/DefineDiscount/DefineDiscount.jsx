@@ -6,8 +6,14 @@ import { apiUrl } from '../../config';
 import Loading from './Loading/Loading';
 
 const DefineDiscount = ({ deleteCodeFromDB }) => {
-  const { errorMessage, setErrorMessage, dataFromDB, setDataFromDB,loading,setLoading } =
-    useGlobalContext();
+  const {
+    errorMessage,
+    setErrorMessage,
+    dataFromDB,
+    setDataFromDB,
+    loading,
+    setLoading,
+  } = useGlobalContext();
 
   const discountCodeInputRef = useRef(null);
   const percentageInputRef = useRef(null);
@@ -122,7 +128,7 @@ const DefineDiscount = ({ deleteCodeFromDB }) => {
             </button>
           </div>
         </form>
-        {loading && <Loading />}
+        <div>{loading && <Loading />}</div>
         <div className="w-full h-35% flex flex-col items-center justify-center">
           {errorMessage.type === 'existedInDB' && (
             <p className={`text-center text-base pb-10 ${errorMessage.color}`}>

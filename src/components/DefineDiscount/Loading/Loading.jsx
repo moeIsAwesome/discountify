@@ -16,7 +16,7 @@ const styles = `
     display: inline-block;
     position: relative;
     width: 80px;
-    height: 80px;
+    height: 9px;
   }
   .lds-ellipsis div {
     position: absolute;
