@@ -12,6 +12,8 @@ Built using React and TailwindCSS, Discountify utilizes modern syntaxes and foll
 
 https://good-cyan-barnacle.cyclic.app/
 
+Discountify provides seamless CRUD functionality and displays data from the database in real-time. So, this is a real CRUD! not just some changes in the UI!
+
 
 **What tools were used in this project?**
 * NodeJS
