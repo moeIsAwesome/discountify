@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Loading = () => {
   return (
     <div className="lds-ellipsis">
@@ -16,7 +14,7 @@ const styles = `
     display: inline-block;
     position: relative;
     width: 80px;
-    height: 4px;
+    height: 40px;
   }
   .lds-ellipsis div {
     position: absolute;

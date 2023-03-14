@@ -128,8 +128,9 @@ const DefineDiscount = ({ deleteCodeFromDB }) => {
             </button>
           </div>
         </form>
-        <div>{loading && <Loading />}</div>
         <div className="w-full h-35% flex flex-col items-center justify-center">
+          {loading && <Loading />}
+
           {errorMessage.type === 'existedInDB' && (
             <p className={`text-center text-base pb-10 ${errorMessage.color}`}>
               {errorMessage.message}
@@ -139,7 +140,7 @@ const DefineDiscount = ({ deleteCodeFromDB }) => {
       </div>
 
       <div className="h-40% flex flex-col items-center">
-        <div className="h-0.5 mb-3 w-full bg-gradient-to-r from-primary-light via-primary-dark to-primary-light"></div>
+        <div className="h-0.5 mb-3 mt-3 w-full bg-gradient-to-r from-primary-light via-primary-dark to-primary-light"></div>
         <CodeTable deleteCodeFromDB={deleteCodeFromDB} />
       </div>
       <div className="h-10% w-full">
